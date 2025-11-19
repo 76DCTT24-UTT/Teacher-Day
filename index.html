@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tặng cô 20/11 💖</title>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #ffb6c1;
+    overflow: hidden;
+  }
+  .screen {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    text-align: center;
+    transition: opacity 0.6s ease;
+  }
+  .active { display: flex; }
+
+  /* ===== TRANG 1 ===== */
+  #screen1 {
+    background-color: #ffc2d1;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .teacher-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid white;
+    box-shadow: 0 0 15px rgba(255, 100, 150, 0.6);
+    margin-bottom: 10px;
+    animation: float 3s ease-in-out infinite;
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  h2 {
+    color: #d63384;
+    font-weight: 600;
+    font-size: 18px;
+    margin: 0 0 10px;
+  }
+  #input {
+    background: white;
+    border-radius: 12px;
+    padding: 10px 20px;
+    width: 130px;
+    margin-bottom: 15px;
+    font-size: 24px;
+    color: #ff4b6e;
+    text-align: center;
+    letter-spacing: 2px;
+    box-shadow: 0 0 10px rgba(255, 100, 149, 0.29);
+  }
+  .keypad {
+    display: grid;
+    grid-template-columns: repeat(3, 70px);
+    gap: 10px;
+    justify-content: center;
+  }
+  .keypad button {
+    background: #ff7fa8;
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-size: 20px;
+    padding: 12px;
+    cursor: pointer;
+    transition: 0.2s;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+  .keypad button:hover { background: #ff4b6e; }
+
+  /* ===== TRANG 2 ===== */
+  #screen2 {
+    background: radial-gradient(circle at top left, #ffcce1, #ffb6c1);
+    gap: 40px;
+  }
+  .card2 {
+    background: white;
+    border-radius: 25px;
+    width: 230px;
+    height: 160px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #d63384;
+    font-size: 28px;
+    font-family: 'Pacifico', cursive;
+    box-shadow: 0 0 25px rgba(255,100,150,0.3);
+    transform: scale(0.8);
+    opacity: 0;
+    animation: zoomIn 1.2s forwards;
+  }
+  .card2:nth-child(2) { animation-delay: 0.6s; }
+  @keyframes zoomIn {
+    to { transform: scale(1); opacity: 1; }
+  }
+
+  /* ===== TRANG 3 ===== */
+  #screen3 {
+    background: linear-gradient(180deg, #ffd6e0, #ffb6c1);
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: background 4s ease-in-out;
+  }
+  #screen3.animate-bg {
+    background: linear-gradient(180deg, #ffe4ec, #ffcce0);
+  }
+  #screen3 h3 {
+    color: #d63384;
+    font-size: 30px;
+    animation: titleFade 3s ease-in-out infinite alternate;
+  }
+  @keyframes titleFade {
+    from { text-shadow: 0 0 8px #fff; }
+    to { text-shadow: 0 0 15px #ff88b4; }
+  }
+
+  .gallery {
+    position: relative;
+    width: 100%;
+    height: 340px;
+    overflow: hidden;
+  }
+  .gallery img {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 20px;
+    opacity: 0;
+  }
+  @keyframes fly {
+    0% {
+      left: -200px;
+      opacity: 0;
+      transform: translateY(0px) scale(0.8) rotate(-10deg);
+    }
+    25% {
+      opacity: 0.9;
+      transform: translateY(-15px) rotate(-3deg);
+    }
+    50% {
+      opacity: 1;
+      transform: translateY(10px) rotate(0deg);
+    }
+    75% {
+      opacity: 0.8;
+      transform: translateY(-5px) rotate(5deg);
+    }
+    100% {
+      left: 100vw;
+      opacity: 0;
+      transform translateY(0px) scale(1.1) rotate(8deg);
+    }
+  }
+
+  .btn {
+    background: #ff4b6e;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 10px 22px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s;
+    animation: heartbeat 1.6s infinite;
+  }
+  .btn:hover {
+    background: #ff648b;
+    box-shadow: 0 0 20px rgba(255,100,150,0.4);
+  }
+  @keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+  }
+
+  /* ===== TIM BAY ===== */
+  .heart {
+    position: absolute;
+    color: #ff6fa5;
+    font-size: 20px;
+    opacity: 0.7;
+    animation: floatUp 6s linear infinite;
+  }
+  @keyframes floatUp {
+    0% { transform: translateY(0) scale(0.8); opacity: 0.8; }
+    100% { transform: translateY(-120vh) scale(1.2); opacity: 0; }
+  }
+
+  /* ===== THIỆP ===== */
+  .card-popup {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(255, 240, 245, 0.97);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 1s ease;
+    overflow: hidden;
+  }
+  .card-popup.active {
+    opacity: 1;
+    pointer-events: all;
+    animation: bgPulse 4s infinite alternate;
+  }
+  @keyframes bgPulse {
+    from { background: rgba(255, 240, 245, 0.97); }
+    to { background: rgba(255, 220, 230, 0.97); }
+  }
+
+  .popup-content {
+    background: white;
+    border-radius: 25px;
+    padding: 30px 40px;
+    box-shadow: 0 0 30px rgba(255, 100, 150, 0.4);
+    max-width: 420px;
+    text-align: center;
+    animation: openCard 1s ease forwards, glow 2.5s ease-in-out infinite alternate;
+    position: relative;
+    overflow: hidden;
+  }
+  @keyframes openCard {
+    0% { transform: scale(0.3) rotateY(90deg); opacity: 0; }
+    100% { transform: scale(1) rotateY(0deg); opacity: 1; }
+  }
+  @keyframes glow {
+    0% { box-shadow: 0 0 20px rgba(255,100,150,0.3); }
+    100% { box-shadow: 0 0 40px rgba(255,100,150,0.6); }
+  }
+
+  /* ánh sáng quét qua chữ */
+  .shine {
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(120deg, rgba(255,255,255,0.2), rgba(255,255,255,0.7), rgba(255,255,255,0.2));
+    transform: skewX(-20deg);
+    animation: shineMove 2s infinite;
+  }
+  @keyframes shineMove {
+    0% { left: -75%; }
+    100% { left: 125%; }
+  }
+
+  .popup-content h2 {
+    font-family: 'Pacifico', cursive;
+    color: #d63384;
+    margin-bottom: 10px;
+    position: relative;
+  }
+  .popup-content p {
+    color: #ff4b6e;
+    font-size: 16px;
+    line-height: 1.6;
+    opacity: 0;
+    animation: textFade 3s forwards 1s;
+  }
+  @keyframes textFade {
+    to { opacity: 1; }
+  }
+
+  /* ánh sáng lấp lánh */
+  .sparkle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: white;
+    opacity: 0.8;
+    animation: sparkleAnim 2s linear infinite;
+  }
+  @keyframes sparkleAnim {
+    from { transform: scale(0); opacity: 1; }
+    to { transform: scale(1.4); opacity: 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TRANG 1 -->
+<div class="screen active" id="screen1">
+  <img src="CNL_45.JPG" class="teacher-img">
+  <h2>Nhập ngày bắt đầu trên hành trình TT24 💖</h2>
+  <div id="input"></div>
+  <div class="keypad">
+    <button onclick="press(1)">1</button>
+    <button onclick="press(2)">2</button>
+    <button onclick="press(3)">3</button>
+    <button onclick="press(4)">4</button>
+    <button onclick="press(5)">5</button>
+    <button onclick="press(6)">6</button>
+    <button onclick="press(7)">7</button>
+    <button onclick="press(8)">8</button>
+    <button onclick="press(9)">9</button>
+    <button onclick="clearInput()">C</button>
+    <button onclick="press(0)">0</button>
+    <button onclick="checkCode()">OK</button>
+  </div>
+</div>
+
+<!-- TRANG 2 -->
+<div class="screen" id="screen2" onclick="showScreen(3)">
+  <div class="card2">💌 Happy teacher days 20/11 💖</div>
+  <div class="card2"> For ms Loan  ❤️</div>
+</div>
+
+<!-- TRANG 3 -->
+<div class="screen" id="screen3">
+  <h3>🎉 HAPPY TEACHER DAYS 20/11 🎉</h3>
+  <div class="gallery" id="gallery">
+    <img src="TT24_min.jpg">
+    <img src="CNL_43_min.JPG">
+    <img src="CNL_45_min.JPG">
+    <img src="CNL_28_min.JPG">
+    <img src="CNL_14_min.JPG">
+    <img src="CNL_27_min.JPG">
+    <img src="CNL_7_min.JPG">
+  
+    
+  </div>
+  <button class="btn" onclick="openCard()">💝 Mở quà 💝</button>
+
+  <div class="card-popup" id="cardPopup">
+    <div class="popup-content">
+      <div class="shine"></div>
+      <h2>💐 Gửi đến cô yêu quý 💐</h2>
+      <p>
+        Nhân ngày Nhà Giáo Việt Nam 20/11,<br>
+        chúng em xin gửi đến cô lời chúc tốt đẹp nhất!<br><br>
+        Chúc cô luôn mạnh khỏe, hạnh phúc,<br>
+        và thành công trong sự nghiệp trồng người 🌸<br><br>
+        Cảm ơn cô vì tất cả mọi điều cô dành cho chúng em<br>
+        và sự tận tâm dành cho chúng em 💖<br>
+        HAPPY TEACHER DAYS<br>
+      </p>
+    </div>
+  </div>
+</div>
+
+<script>
+let entered = "";
+const correctCode = "2808";
+const inputDisplay = document.getElementById("input");
+
+function press(num) {
+  if (entered.length < 4) {
+    entered += num;
+    displayFormat();
+  }
+}
+function displayFormat() {
+  if (entered.length <= 2) inputDisplay.textContent = entered;
+  else inputDisplay.textContent = entered.slice(0, 2) + "/" + entered.slice(2);
+}
+function clearInput() { entered = ""; inputDisplay.textContent = ""; }
+function checkCode() {
+  if (entered === correctCode) showScreen(2);
+  else {
+    inputDisplay.textContent = "Sai mất rồi 💔";
+    setTimeout(clearInput, 1000);
+  }
+}
+function showScreen(n) {
+  document.querySelectorAll(".screen").forEach(s => s.classList.remove("active"));
+  document.getElementById("screen" + n).classList.add("active");
+  if (n === 3) startGallery();
+}
+function startGallery() {
+  const gallery = document.getElementById("gallery");
+  const imgs = Array.from(gallery.querySelectorAll("img"));
+  for (let i = 0; i < 3; i++) imgs.forEach(img => gallery.appendChild(img.cloneNode(true)));
+  const allImgs = gallery.querySelectorAll("img");
+  allImgs.forEach((img, i) => {
+    img.style.top = Math.random() * 250 + "px";
+    img.style.left = -150 - Math.random() * 200 + "px";
+    img.style.animation = `fly ${10 + Math.random() * 6}s linear infinite`;
+    img.style.animationDelay = (i * 1.5) + "s";
+  });
+  setInterval(() => {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.textContent = "💖";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = 14 + Math.random() * 12 + "px";
+    heart.style.animationDuration = 5 + Math.random() * 3 + "s";
+    document.getElementById("screen3").appendChild(heart);
+    setTimeout(() => heart.remove(), 8000);
+  }, 700);
+}
+function openCard() {
+  document.getElementById("cardPopup").classList.add("active");
+  document.getElementById("screen3").classList.add("animate-bg");
+  for (let i = 0; i < 20; i++) {
+    const s = document.createElement("div");
+    s.className = "sparkle";
+    s.style.top = Math.random() * 100 + "%";
+    s.style.left = Math.random() * 100 + "%";
+    s.style.animationDuration = 1 + Math.random() * 2 + "s";
+    document.getElementById("cardPopup").appendChild(s);
+    setTimeout(() => s.remove(), 3000);
+  }
+}
+</script>
+</body>
+</html>
